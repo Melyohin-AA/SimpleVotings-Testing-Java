@@ -8,7 +8,7 @@ public class Pages {
 	public static String serverAddress = "http://127.0.0.1:8000";
 	
 	public static String getApiPageAddress(String cmdName) {
-		return serverAddress + "/qa_api/?cmd=" + cmdName;
+		return serverAddress + "/testing_api/?cmd=" + cmdName;
 	}
 	public static String getIndexPageAddress() {
 		return serverAddress + "/";
