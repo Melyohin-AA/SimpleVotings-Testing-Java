@@ -21,9 +21,9 @@ public class Authentication {
 	}
 	public static void logOut() {
 		Browser.driver.get(Pages.getIndexPageAddress());
-		clickLogOutLink();
+		clickLogoutLink();
 	}
-	public static void clickLogOutLink() {
+	public static void clickLogoutLink() {
 		Browser.driver.findElement(By.xpath("//a[text()='Выйти']")).click();
 		authenticated = false;
 	}
@@ -39,7 +39,7 @@ public class Authentication {
 	}
 	@When("I try to log out")
 	public void I_try_to_log_out() {
-		clickLogOutLink();
+		clickLogoutLink();
 	}
 	
 	@Then("I verify login is proper")
