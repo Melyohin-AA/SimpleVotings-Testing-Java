@@ -42,8 +42,8 @@ public class Registration {
 	@After
 	public static void close(Scenario scenario) throws Exception {
 		if (toDelete) {
+			toDelete = false;
 			int status = ApiCommand.delUser(login, password).execute();
-			toDelete = status != 200;
 			System.out.println("Account deletion: " + status);
 		}
 	}

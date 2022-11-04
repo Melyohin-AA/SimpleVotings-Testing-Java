@@ -6,17 +6,19 @@ import io.cucumber.java.*;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Browser {
-	public static boolean headless = false;
+	public static boolean headless = true;
 	public static WebDriver driver;
 	public static Stack<String> tabHs = new Stack<String>();
 	
-	public static WebDriver openOne(boolean headless) {
+	public static void openBrowser() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		if (headless) options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		return driver;
 	}
 	public static void newTab() {
 		tabHs.push(driver.getWindowHandle());
@@ -29,7 +31,7 @@ public class Browser {
 	
 	@BeforeAll
 	public static void open() {
-		driver = openOne(headless);
+		openBrowser();
 	}
 	
 	@AfterAll
