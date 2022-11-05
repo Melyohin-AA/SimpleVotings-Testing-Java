@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
 
@@ -25,6 +26,11 @@ public class Authentication {
 	}
 	public static void clickLogoutLink() {
 		Browser.driver.findElement(By.xpath("//a[text()='Выйти']")).click();
+		authenticated = false;
+	}
+	
+	@Before
+	public static void reset() {
 		authenticated = false;
 	}
 	

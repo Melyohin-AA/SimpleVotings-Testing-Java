@@ -3,7 +3,6 @@ package steps;
 import java.time.Duration;
 import java.util.Stack;
 import io.cucumber.java.*;
-import io.cucumber.java.en.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -42,6 +41,7 @@ public class Browser {
 	
 	@Before
 	public static void reset() {
+		tabHs.clear();
 		driver.manage().deleteAllCookies();
 		String mainWindowH = driver.getWindowHandle();
 		for (String windowH : driver.getWindowHandles()) {
