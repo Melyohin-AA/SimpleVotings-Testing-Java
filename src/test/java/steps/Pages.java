@@ -68,6 +68,7 @@ public class Pages {
 	}
 	@Then("I verify registration page is loaded")
 	public void I_verify_registration_page_is_loaded() {
-		assert Browser.driver.getCurrentUrl().equals(getRegistrationPageAddress(false));
+		assert Browser.driver.getCurrentUrl().equals(getRegistrationPageAddress(false)) ||
+			Browser.driver.getCurrentUrl().equals(getRegistrationPageAddress(true));
 	}
 }

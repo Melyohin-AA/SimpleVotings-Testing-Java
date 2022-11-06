@@ -24,7 +24,7 @@ public class Registration {
 			}
 			login = sb.toString();
 			int status = ApiCommand.hasUser(login).execute();
-			if (status != 200) break;
+			if (status != 242) break;
 		}
 		Browser.closeTab();
 		return login;
